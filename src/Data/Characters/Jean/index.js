@@ -82,7 +82,7 @@ const char = {
           <p className="mb-2">Focusing the might of the formless wind around her blade, Jean releases a miniature storm, launching opponents in the direction she aims at, dealing massive <span className="text-anemo">Anemo DMG</span>.</p>
           <p className="mb-2"><b>Hold:</b> At the cost of continued stamina consumption, Jean can command the whirlwind to pull surrounding opponents and objects towards her front.</p>
           <ul className="mb-2">
-            <li>Dicrection can be adjusted/</li>
+            <li>Direction can be adjusted.</li>
             <li>Character is immobile during skill duration.</li>
           </ul>
         </span>,
@@ -153,27 +153,27 @@ const char = {
       }],
     },
     passive1: {
-      name: "Guiding Breeze",
-      img: passive1,
-      document: [{ text: <span>When a Perfect Cooking is achieved on a dish with restorative effects, Barbara has a 12% chance to obtain double the product.</span> }],
-    },
-    passive2: {
       name: "Wind Companion",
-      img: passive2,
+      img: passive1,
       document: [{
         text: <span>On hit, Jean's Normal Attacks have a 50% change to regenerate HP equal to 15% of Jean's ATK for all party members.</span>,
         fields: [(con, a) => a >= 4 && {
-          text: "Regeneration",
-          formulaText: (tlvl, stats) => <span>( 50% {Stat.printStat("finalATK", stats)} + {data.burst.heal_flat[tlvl]} ) * {Stat.printStat("heal_multi", stats)}</span>,
-          formula: formula.passive1.heal,
+          text: "Heal per Auto",
+          formulaText: (tlvl, stats) => <span>15% {Stat.printStat("finalATK", stats)} * {Stat.printStat("heal_multi", stats)}</span>,
+          formula: formula.passive2.heal,
           variant: "success",
         }]
       }],
     },
-    passive3: {
+    passive2: {
       name: "Let the Wind Lead",
-      img: passive3,
+      img: passive2,
       document: [{ text: <span>Using <b>Dandelion Breeze</b> will regenerate 20% of its Energy.</span> }],
+    },
+    passive3: {
+      name: "Guiding Breeze",
+      img: passive3,
+      document: [{ text: <span>When a Perfect Cooking is achieved on a dish with restorative effects, Barbara has a 12% chance to obtain double the product.</span> }],
     },
     constellation1: {
       name: "Spiraling Tempest",
